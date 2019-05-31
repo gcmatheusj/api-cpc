@@ -2,7 +2,7 @@ require("dotenv").config();
 
 const express = require("express");
 const mongoose = require("mongoose");
-const allowCors = require("./config/cors");
+const cors = require("cors");
 const databaseConfig = require("./config/database");
 
 class App {
@@ -23,7 +23,7 @@ class App {
   }
 
   middlewares() {
-    this.express.use(allowCors);
+    this.express.use(cors());
     this.express.use(express.json());
     this.express.use(express.urlencoded({ extended: true }));
   }
